@@ -20,6 +20,12 @@ if (Meteor.isClient) {
       event.target.name.value = '';
     }
   });
+
+  Template.skill.events({
+    'click .increment-score': function(event){
+      Skills.update(this._id, {$inc: {score: 1}});
+    }
+  });
 }
 
 if (Meteor.isServer) {
