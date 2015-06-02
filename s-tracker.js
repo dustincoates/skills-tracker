@@ -1,6 +1,9 @@
 Skills = new Mongo.Collection('skills');
 
 if (Meteor.isClient) {
+  // Be sure to run: $meteor remove autopublish
+  Meteor.subscribe("skills");
+
   Template.body.helpers({
     skills: function(){
       return Skills.find({});
@@ -30,8 +33,8 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  Meteor.publish('skills', function(){
+    return Skills.find({});
   });
 }
 
