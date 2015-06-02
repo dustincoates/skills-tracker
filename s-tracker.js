@@ -14,6 +14,9 @@ if (Meteor.isClient) {
       Skills.insert({
         name: event.target.name.value,
         score: 0,
+        // Make sure to run: $meteor reset
+        owner: Meteor.userId(),
+        username: Meteor.user().username,
         createdAt: new Date()
       });
 
