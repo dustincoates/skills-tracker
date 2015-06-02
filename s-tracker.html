@@ -8,10 +8,16 @@
     {{> loginButtons}}
   </header>
 
-  <form class="add-skill">
-    <input type="text" name="name" placeholder="Skill name">
-    <input type="submit" value="Create skill">
-  </form>
+  <!--
+    If we try to add a skill without being logged in we get an error.
+    So let's only show this form to logged in users.
+  -->
+  {{#if currentUser}}
+    <form class="add-skill">
+      <input type="text" name="name" placeholder="Skill name">
+      <input type="submit" value="Create skill">
+    </form>
+  {{/if}}
 
   {{#each skills}}
     {{> skill}}
