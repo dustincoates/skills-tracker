@@ -26,6 +26,11 @@ if (Meteor.isClient) {
       Skills.update(this._id, {$inc: {score: 1}});
     }
   });
+
+  // meteor add accounts-ui accounts-password
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 }
 
 if (Meteor.isServer) {
