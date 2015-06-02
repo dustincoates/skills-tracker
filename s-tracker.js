@@ -6,6 +6,20 @@ if (Meteor.isClient) {
       return Skills.find({});
     }
   });
+
+  Template.body.events({
+    'submit .add-skill': function(event){
+      event.preventDefault();
+
+      Skills.insert({
+        name: event.target.name.value,
+        score: 0,
+        createdAt: new Date()
+      });
+
+      event.target.name.value = '';
+    }
+  });
 }
 
 if (Meteor.isServer) {
