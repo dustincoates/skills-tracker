@@ -5,5 +5,11 @@
 <body>
   <h1>Welcome to Skills Tracker!</h1>
 
+  {{#each skills}}
+    {{> skill}}
+  {{/each}}
 </body>
 
+<template name="skill">
+  <li>{{name}} - <span>{{score}}</span></li>
+</template>
